@@ -23,3 +23,7 @@ Open that email and confirm the form. After confirmation, future website request
 - Mobile-friendly layout
 
 Upload these files to the root of the GitHub Pages repository and replace the old index.html.
+
+
+## Update
+- Added Snow Plowing as a selectable service category.
