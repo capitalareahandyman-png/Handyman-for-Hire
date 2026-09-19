@@ -27,3 +27,6 @@ Upload these files to the root of the GitHub Pages repository and replace the ol
 
 ## Update
 - Added Snow Plowing as a selectable service category.
+
+- Added Storage Facilities as a selectable service category.
+- Added Storage Facility as a property type.
