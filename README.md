@@ -1,19 +1,25 @@
-# Handyman for Hire Service Request App
+# Handyman for Hire - Automatic Service Request Form
 
-This repository is ready for free hosting with GitHub Pages.
-
-## Publish with GitHub Pages
-1. Create a new public GitHub repository named `handyman-for-hire`.
-2. Upload all files from this folder to the repository root.
-3. In the repository, open **Settings → Pages**.
-4. Under **Build and deployment**, choose **Deploy from a branch**.
-5. Select **main** and **/(root)**, then save.
-6. GitHub will publish the site at an address similar to:
-   `https://YOUR-GITHUB-USERNAME.github.io/handyman-for-hire/`
-
-Once that live URL exists, use it for the final QR code and Facebook post.
-
-Business:
-Handyman for Hire
-518-847-1761
+This version submits customer requests directly to:
 capitalareahandyman@gmail.com
+
+## Important first-time activation
+The first live submission triggers a confirmation email from FormSubmit.
+Open that email and confirm the form. After confirmation, future website requests are automatically emailed.
+
+## Included
+- Service category selection
+- Job description
+- Timing
+- Property type
+- Access notes
+- Customer contact information
+- Preferred contact method
+- Photo attachment
+- Automatic email delivery
+- Customer confirmation email
+- Custom thank-you page
+- Spam honeypot
+- Mobile-friendly layout
+
+Upload these files to the root of the GitHub Pages repository and replace the old index.html.
