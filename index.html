@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#b5121b">
+  <meta name="description" content="Request handyman service from Handyman for Hire in the Capital District.">
+  <link rel="manifest" href="manifest.webmanifest">
+  <title>Handyman for Hire | Request Service</title>
+  <style>
+    :root{
+      --red:#b5121b;--red2:#8f0f16;--ink:#171717;--muted:#666;--paper:#fff;--soft:#f6f6f6;--line:#e6e6e6;
+      --ok:#176b35;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#efefef;color:var(--ink)}
+    .wrap{max-width:760px;margin:auto;background:var(--paper);min-height:100vh;box-shadow:0 0 26px rgba(0,0,0,.10)}
+    header{padding:24px 20px 16px;border-bottom:4px solid var(--red);text-align:center;background:#fff}
+    .brand{display:inline-flex;align-items:center;gap:12px}
+    .ladder{width:34px;height:52px;position:relative}
+    .ladder:before,.ladder:after{content:"";position:absolute;top:0;bottom:0;width:6px;background:var(--red);border-radius:4px}
+    .ladder:before{left:4px}.ladder:after{right:4px}
+    .rung{position:absolute;left:5px;right:5px;height:5px;background:var(--red);border-radius:4px}
+    .r1{top:8px}.r2{top:20px}.r3{top:32px}.r4{top:44px}
+    h1{margin:0;font-family:Georgia,serif;font-size:30px;letter-spacing:.2px}
+    h1 span{color:var(--red);font-family:Arial,sans-serif;font-size:18px;letter-spacing:2px}
+    .tag{margin-top:5px;color:#555;font-size:14px}
+    .phone{margin-top:8px;font-weight:700;color:var(--red);font-size:18px}
+    main{padding:20px}
+    .hero{background:linear-gradient(135deg,#1f1f1f,#3a3a3a);color:white;padding:22px;border-radius:16px;margin-bottom:18px}
+    .hero h2{margin:0 0 8px;font-size:25px}
+    .hero p{margin:0;line-height:1.5;color:#eee}
+    .step{font-size:13px;font-weight:700;color:var(--red);text-transform:uppercase;letter-spacing:1.3px;margin:22px 0 8px}
+    .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+    .service{border:2px solid var(--line);background:#fff;padding:14px 10px;border-radius:12px;text-align:center;font-weight:700;cursor:pointer}
+    .service.selected{border-color:var(--red);background:#fff5f5;color:var(--red)}
+    label{display:block;font-weight:700;margin:12px 0 6px}
+    input,textarea,select{width:100%;padding:13px;border:1.5px solid #ccc;border-radius:10px;font-size:16px;background:white}
+    textarea{min-height:110px;resize:vertical}
+    .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .consent{display:flex;gap:9px;align-items:flex-start;margin:14px 0;color:#555;font-size:13px}
+    .consent input{width:auto;margin-top:2px}
+    button{width:100%;border:0;border-radius:12px;padding:15px;font-size:17px;font-weight:800;cursor:pointer}
+    .primary{background:var(--red);color:white}
+    .primary:hover{background:var(--red2)}
+    .secondary{margin-top:9px;background:#222;color:#fff}
+    .ghost{margin-top:9px;background:#f2f2f2;color:#222}
+    .hidden{display:none}
+    .result{border:2px solid #cfe8d7;background:#f2fff6;padding:18px;border-radius:14px;margin-top:18px}
+    .result h3{margin:0 0 8px;color:var(--ok)}
+    .result p{line-height:1.45}
+    .mini{font-size:12px;color:#777;line-height:1.45;margin-top:12px}
+    footer{padding:20px;text-align:center;color:#666;font-size:12px;border-top:1px solid var(--line)}
+    a{color:inherit}
+    @media (max-width:560px){.row{grid-template-columns:1fr}.grid{grid-template-columns:1fr 1fr}h1{font-size:26px}}
+  </style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="brand">
+    <div class="ladder" aria-hidden="true"><i class="rung r1"></i><i class="rung r2"></i><i class="rung r3"></i><i class="rung r4"></i></div>
+    <div>
+      <h1>HANDYMAN <span>FOR HIRE</span></h1>
+      <div class="tag">Professional Property Maintenance Services</div>
+    </div>
+  </div>
+  <div class="phone">518-847-1761</div>
+</header>
+
+<main>
+  <section class="hero">
+    <h2>What can we fix for you?</h2>
+    <p>Choose the type of work you need, tell us a little about the job, and get an instant next-step response.</p>
+  </section>
+
+  <form id="requestForm">
+    <div class="step">1 · Choose a service</div>
+    <div class="grid" id="services">
+      <button type="button" class="service">Bathroom / Kitchen</button>
+      <button type="button" class="service">Plumbing</button>
+      <button type="button" class="service">Electrical</button>
+      <button type="button" class="service">Drywall / Painting</button>
+      <button type="button" class="service">Flooring / Tile</button>
+      <button type="button" class="service">Doors / Windows</button>
+      <button type="button" class="service">Deck / Fence</button>
+      <button type="button" class="service">Roof / Exterior Repair</button>
+      <button type="button" class="service">Property Maintenance</button>
+      <button type="button" class="service">Cleanup / Debris</button>
+      <button type="button" class="service">Commercial Work</button>
+      <button type="button" class="service">Other</button>
+    </div>
+    <input type="hidden" id="service" required>
+
+    <div class="step">2 · Tell us about the job</div>
+    <label for="details">What needs to be done?</label>
+    <textarea id="details" placeholder="Example: Repair drywall seam in dining room, repaint repaired area..." required></textarea>
+
+    <div class="row">
+      <div>
+        <label for="urgency">How soon?</label>
+        <select id="urgency">
+          <option>As soon as possible</option>
+          <option>Within a few days</option>
+          <option>Within 1–2 weeks</option>
+          <option>I'm planning ahead</option>
+        </select>
+      </div>
+      <div>
+        <label for="property">Property type</label>
+        <select id="property">
+          <option>Residential</option>
+          <option>Commercial</option>
+          <option>Rental / Property Management</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="step">3 · Your contact information</div>
+    <div class="row">
+      <div><label for="name">Name</label><input id="name" autocomplete="name" required></div>
+      <div><label for="phone">Phone</label><input id="phone" inputmode="tel" autocomplete="tel" required></div>
+    </div>
+    <label for="address">Job address / town</label>
+    <input id="address" autocomplete="street-address" placeholder="Street address or town" required>
+
+    <label for="email">Email (optional)</label>
+    <input id="email" type="email" autocomplete="email">
+
+    <div class="consent">
+      <input id="consent" type="checkbox" required>
+      <label for="consent" style="margin:0;font-weight:400">I agree that Handyman for Hire may contact me about this service request by phone, text, or email.</label>
+    </div>
+
+    <button class="primary" type="submit">SUBMIT SERVICE REQUEST</button>
+  </form>
+
+  <section id="result" class="result hidden" aria-live="polite">
+    <h3>Request ready!</h3>
+    <p id="instantText"></p>
+    <button id="textBtn" class="secondary" type="button">TEXT REQUEST TO HANDYMAN FOR HIRE</button>
+    <button id="emailBtn" class="ghost" type="button">EMAIL REQUEST INSTEAD</button>
+    <div class="mini">Your phone or email app will open with the job details already filled in. You can attach job photos before sending.</div>
+  </section>
+</main>
+
+<footer>
+  Handyman for Hire · Capital District, New York · 518-847-1761 · capitalareahandyman@gmail.com
+</footer>
+</div>
+
+<script>
+const BUSINESS_PHONE='5188471761';
+const BUSINESS_EMAIL='capitalareahandyman@gmail.com';
+let selectedService='';
+
+document.querySelectorAll('.service').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.service').forEach(b=>b.classList.remove('selected'));
+    btn.classList.add('selected');
+    selectedService=btn.textContent.trim();
+    document.getElementById('service').value=selectedService;
+  });
+});
+
+function buildMessage(){
+  const v=id=>document.getElementById(id).value.trim();
+  return [
+    'HANDYMAN FOR HIRE - NEW SERVICE REQUEST',
+    '',
+    'Service: '+selectedService,
+    'Customer: '+v('name'),
+    'Phone: '+v('phone'),
+    'Email: '+(v('email')||'Not provided'),
+    'Job location: '+v('address'),
+    'Property type: '+v('property'),
+    'Timing: '+v('urgency'),
+    '',
+    'Job details:',
+    v('details')
+  ].join('\n');
+}
+
+document.getElementById('requestForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  if(!selectedService){
+    alert('Please choose the type of work you need.');
+    return;
+  }
+  const timing=document.getElementById('urgency').value;
+  let reply='Thanks — your '+selectedService.toLowerCase()+' request has been prepared. ';
+  if(timing==='As soon as possible'){
+    reply+='For urgent scheduling, texting the request is the fastest way to reach Handyman for Hire.';
+  } else {
+    reply+='Send the request below and Handyman for Hire will follow up to discuss the job and scheduling.';
+  }
+  document.getElementById('instantText').textContent=reply;
+  document.getElementById('result').classList.remove('hidden');
+  document.getElementById('result').scrollIntoView({behavior:'smooth',block:'start'});
+});
+
+document.getElementById('textBtn').addEventListener('click',()=>{
+  const body=encodeURIComponent(buildMessage());
+  window.location.href='sms:'+BUSINESS_PHONE+'?&body='+body;
+});
+document.getElementById('emailBtn').addEventListener('click',()=>{
+  const subject=encodeURIComponent('Handyman for Hire Service Request - '+selectedService);
+  const body=encodeURIComponent(buildMessage()+'\n\nI can attach job photos to this email.');
+  window.location.href='mailto:'+BUSINESS_EMAIL+'?subject='+subject+'&body='+body;
+});
+
+if('serviceWorker' in navigator){
+  navigator.serviceWorker.register('./service-worker.js').catch(()=>{});
+}
+</script>
+</body>
+</html>
